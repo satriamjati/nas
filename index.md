@@ -34,7 +34,7 @@ layout: default
     </li>
     <li>
       <a href="#kamus">Kamus</a>
-    <li>
+    </li>
     <li>
       <a href="#cara-pakai">Cara Pakai</a>
     </li>
