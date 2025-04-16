@@ -99,10 +99,10 @@ Setiap user punya satu folder private sesuai nama user. Semua user bisa mengakse
 <!-- Login -->
 ## Login
 
-* Users: gal somsom in
-* Password default: 123
+* Users: gal somsom in ib pi
+* Password default: 123 (ganti password sebelum dipakai)
 
-Ganti password [disini](/nas). Kalo lupa password atau butuh user baru bisa [minta ke admin](https://wa.me/6281233858883).
+Ganti password [disini](http://charmy/nas/) (via Tailscale) atau [disini](http://192.168.1.100/nas/) (via wifi). Kalo lupa password atau butuh user baru bisa [minta ke admin](https://wa.me/6281233858883).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
