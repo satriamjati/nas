@@ -1,4 +1,4 @@
-name: Build site using Pandoc
+name: Build site using Pandoc + Water.css
 
 on:
   push:
@@ -18,21 +18,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Set up GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Install Pandoc
-        run: sudo apt-get update && sudo apt-get install -y pandoc
-
-      - name: Convert Markdown to HTML using Pandoc
         run: |
-          mkdir _site
-          pandoc index.md -s -o _site/index.html
+          sudo apt-get update
+          sudo apt-get install -y pandoc
 
-      - name: Upload artifact
+      - name: Convert Markdown to HTML using Pandoc + Water.css
+        run: |
+          mkdir -p _site
+          pandoc index.md --standalone \
+            --css=https://cdn.jsdelivr.net/npm/water.css@2/out/water.css \
+            -o _site/index.html
+
+      - name: Copy static assets (images + root videos)
+        run: |
+          # Copy image folder
+          [ -d images ] && cp -r images _site/
+          
+          # Copy specific video files in root
+          for file in 001.mp4 003.mp4 004.mp4 005.mp4; do
+            [ -f "$file" ] && cp "$file" _site/
+          done
+
+      - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
